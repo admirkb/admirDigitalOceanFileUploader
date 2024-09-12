@@ -1,0 +1,21 @@
+<div class="container">
+    <h2>Upload Images and Videos to DigitalOcean</h2>
+  
+    <!-- File Upload Form -->
+    <form (submit)="uploadFiles()">
+      <input type="file" multiple (change)="onFileSelected($event)" />
+      <button type="submit">Upload</button>
+    </form>
+  
+    <!-- List of uploaded files -->
+    <div *ngIf="uploadedFiles.length">
+      <h3>Uploaded Files:</h3>
+      <ul>
+        <li *ngFor="let file of uploadedFiles">
+          <span>{{ file.name }}</span>
+          <button (click)="removeFile(file.name)">Remove</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
